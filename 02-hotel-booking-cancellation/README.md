@@ -1,97 +1,49 @@
-# 🏨 Hotel Booking Cancellation Analysis
+# Hotel Booking Cancellation Analysis
 
-This project analyzes hotel booking data to understand cancellation behavior and builds machine learning models to predict whether a booking is likely to be canceled. The goal is to extract actionable insights that can help hotels improve revenue management, reduce cancellation-related losses, and better understand customer booking patterns.
+Predicting hotel booking cancellations to extract actionable insights for revenue management, reduce losses, and understand customer booking patterns.
 
----
-
-## 📌 Dataset
-
-- **Source:** Hotel Booking Demand dataset
-- **Size:** 119,390 records
-- **Type:** Structured tabular data
-- **Target:** `is_canceled`
+**Dataset:** Hotel Booking Demand — 119,390 records  
+**Type:** Classification (`is_canceled`)  
+**Stack:** Python · Scikit-learn · Random Forest · XGBoost  
 
 ---
 
-## 🎯 Objectives
+## Features & EDA
 
-- Analyze patterns behind hotel booking cancellations
-- Identify the main factors influencing cancellations
-- Build a predictive model for cancellation probability
-- Provide business insights for hotel decision-making
-
----
-
-## 🧠 Approach
-
-### Data Preprocessing
-- Handled missing values
-- Encoded categorical variables
-- Managed outliers where needed
-- Prepared the dataset for machine learning models
-
-### Feature Engineering
-- `total_guests`
-- `total_stay_nights`
-- `is_company_booking`
-- `is_room_changed`
-- `has_booking_changes`
-- `is_demanding_customer`
-- Monthly and seasonal trend features
+- **Feature Engineering:** Added variables like `total_guests`, `total_stay_nights`, `is_company_booking`, and `is_demanding_customer`.
+- **Key Insights:** 
+  - Overall cancellation rate: **37.04%** (City Hotel: 41.73%, Resort Hotel: 27.76%).
+  - Median lead time is significantly higher for canceled bookings (113 days) compared to non-canceled ones (45 days).
+- **Optimization:** Hyperparameter tuning using `RandomizedSearchCV` (cv=5, 30 candidates).
 
 ---
 
-## 🔍 Exploratory Data Analysis
+## Results
 
-Some key findings from the analysis:
+| Model | Accuracy |
+|---|---|
+| Logistic Regression | 0.8343 |
+| XGBoost | 0.8713 |
+| Random Forest | 0.8979 |
+| Tuned Random Forest | **0.8987** |
 
-- Overall cancellation rate: **37.04%**
-- City Hotel cancellation rate: **41.73%**
-- Resort Hotel cancellation rate: **27.76%**
-- Median lead time for canceled bookings: **113 days**
-- Median lead time for non-canceled bookings: **45 days**
-
----
-
-## 🤖 Machine Learning Models
-
-- Logistic Regression (baseline model)
-- Random Forest Classifier
-- XGBoost Classifier
-- Tuned Random Forest Classifier
-- Cross-validation used for model evaluation
-- Hyperparameter tuning performed with `RandomizedSearchCV`
+*Tuned RF Best Parameters: `n_estimators`: 300, `max_depth`: None, `min_samples_leaf`: 1, `max_features`: 0.3*
 
 ---
 
-## 📊 Model Performance
+## Visualizations
 
-### Logistic Regression
-- **Accuracy:** 0.8343
+### Cancellation Rate by Hotel Type
+![Cancellation Rate by Hotel Type](projects/githubisko/02-hotel-booking-cancellation/plots/cancellation_rate_by_hotel_type.png)
 
-### Random Forest
-- **Accuracy:** 0.8979
+### Monthly Cancellation Rate
+![Monthly Cancellation Rate](projects/githubisko/02-hotel-booking-cancellation/plots/monthly_cancellation_rate.png)
 
-### XGBoost
-- **Accuracy:** 0.8713
+### Feature Importance
+![Feature Importance](projects/githubisko/02-hotel-booking-cancellation/plots/feature_importance_rf.png)
 
----
+### Confusion Matrix (Baseline Random Forest)
+![Confusion Matrix RF](projects/githubisko/02-hotel-booking-cancellation/plots/confusion_matrix_random_forest.png)
 
-## 🏆 Tuned Random Forest Results
-
-After hyperparameter tuning with 5-fold cross-validation across 30 candidates, the final model achieved strong performance on the test set.
-
-### Best Hyperparameters
-- `n_estimators`: 300
-- `max_depth`: None
-- `min_samples_leaf`: 1
-- `max_features`: 0.3
-
-### Performance Metrics
-- **Best CV Accuracy:** 0.8906
-- **Test Accuracy:** 0.8987
-
-### Confusion Matrix
-```python
-[[13896  1011]
- [ 1409  7562]]
+### Confusion Matrix (Tuned Random Forest)
+![Confusion Matrix Tuned RF](projects/githubisko/02-hotel-booking-cancellation/plots/rf_confusion_matrix_tuned.png)
