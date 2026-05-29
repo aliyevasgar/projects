@@ -1,7 +1,6 @@
 # Car Price Prediction
 
-Predicting used car prices based on brand, mileage, engine volume, 
-year, and other vehicle features using machine learning.
+Predicting used car prices based on brand, mileage, engine volume, year, and other vehicle features using machine learning.
 
 **Dataset:** Used Car Sales — 4,345 records, 9 features  
 **Type:** Regression  
@@ -11,10 +10,10 @@ year, and other vehicle features using machine learning.
 
 ## Features
 
-- Outlier clipping (1st–99th percentile)
-- Feature engineering: `Car_Age_2026`, `Mileage_per_Year`, `Brand_Power`
-- Pipeline: `RobustScaler` + `OneHotEncoder` + `XGBRegressor`
-- Hyperparameter tuning with `GridSearchCV` (cv=5)
+- **Data Preprocessing:** Outlier clipping (1st–99th percentile).
+- **Feature Engineering:** `Car_Age_2026`, `Mileage_per_Year`, `Brand_Power`.
+- **Pipeline:** `RobustScaler` + `OneHotEncoder` + `XGBRegressor`.
+- **Optimization:** Hyperparameter tuning with `GridSearchCV` (cv=5).
 
 ---
 
@@ -49,4 +48,3 @@ year, and other vehicle features using machine learning.
 ```bash
 pip install -r requirements.txt
 jupyter notebook 01-car-price-prediction.ipynb
-```
