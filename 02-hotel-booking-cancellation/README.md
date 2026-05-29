@@ -34,16 +34,24 @@ Predicting hotel booking cancellations to extract actionable insights for revenu
 ## Visualizations
 
 ### Cancellation Rate by Hotel Type
-![Cancellation Rate by Hotel Type](projects/githubisko/02-hotel-booking-cancellation/plots/cancellation_rate_by_hotel_type.png)
+![Cancellation Rate by Hotel Type](./plots/cancellation_rate_by_hotel_type.png)
 
 ### Monthly Cancellation Rate
-![Monthly Cancellation Rate](projects/githubisko/02-hotel-booking-cancellation/plots/monthly_cancellation_rate.png)
+![Monthly Cancellation Rate](./plots/monthly_cancellation_rate.png)
 
 ### Feature Importance
-![Feature Importance](projects/githubisko/02-hotel-booking-cancellation/plots/feature_importance_rf.png)
+![Feature Importance](./plots/feature_importance_rf.png)
 
 ### Confusion Matrix (Baseline Random Forest)
-![Confusion Matrix RF](projects/githubisko/02-hotel-booking-cancellation/plots/confusion_matrix_random_forest.png)
+![Confusion Matrix RF](./plots/confusion_matrix_random_forest.png)
 
 ### Confusion Matrix (Tuned Random Forest)
-![Confusion Matrix Tuned RF](projects/githubisko/02-hotel-booking-cancellation/plots/rf_confusion_matrix_tuned.png)
+![Confusion Matrix Tuned RF](./plots/rf_confusion_matrix_tuned.png)
+
+---
+
+## How to Run
+
+```bash
+pip install -r requirements.txt
+jupyter notebook 02-hotel-booking-cancellation.ipynb
