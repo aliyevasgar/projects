@@ -1,0 +1,6 @@
+{
+    "classifier__n_estimators": 300,
+    "classifier__min_samples_leaf": 1,
+    "classifier__max_features": 0.3,
+    "classifier__max_depth": null
+}
